@@ -21,3 +21,12 @@
   max-width: 600px;
   text-align: center;
 }
+
+.card-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  flex-wrap: wrap; /* responsive layout */
+}

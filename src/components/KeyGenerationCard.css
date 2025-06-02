@@ -1,7 +1,4 @@
 .key-card {
-  position: absolute;
-  top: 10rem;
-  left: 4rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 2rem;
@@ -9,10 +6,11 @@
   width: 360px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  z-index: 10;
-  text-align: center;
-  max-height: 80vh;
+  max-height: 100vh;
   overflow: hidden;
+  height: 70vh;
+  align-items: center;
+  text-align: center;
 }
 
 .key-button {
@@ -43,7 +41,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   padding: 0.5rem;
-  max-height: 120px;
+  max-height: 15vh;
   overflow-y: auto;
   font-size: 0.8rem;
   word-break: break-word;

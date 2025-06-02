@@ -1,14 +1,18 @@
 import React from 'react';
 import './MainPage.css';
 import KeyGenerationCard from '../../components/KeyGenerationCard';
+import FileUploadCard from '../../components/FileUploadCard';
+import EncryptCard from '../../components/EncryptCard';
 
 
 const MainPage = () => {
   return (
     <div className="main-page">
-      <KeyGenerationCard />
-      <h1>Main Application Page</h1>
-      <p>Display maps, blockchain interaction, and encrypted data visualization here.</p>
+      <div className='card-row'>
+        <KeyGenerationCard />
+        <FileUploadCard />
+        <EncryptCard />
+      </div>
     </div>
   );
 };

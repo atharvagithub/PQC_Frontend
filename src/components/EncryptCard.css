@@ -1,0 +1,123 @@
+.encrypt-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  color: rgb(70, 61, 68);
+  width: 360px;
+  height: 70vh;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.encrypt-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.encrypt-card label {
+  text-align: left;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.encrypt-textarea {
+  width: 100%;
+  height: 8.5rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+  resize: none;
+  border: none;
+  margin-top: 0.25rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding-right: 3px;
+}
+
+.encrypt-button {
+  margin-top: 1.2rem;
+  background-color: #5a4fcf;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.encrypt-button:hover {
+  background-color: #7a6fe0;
+}
+
+.encryption-animation {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f9c74f;
+}
+
+.encrypt-result {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.encrypt-output-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  word-break: break-word;
+
+  max-height: none;
+  height: auto;
+  overflow: visible;
+}
+
+.encrypt-textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.encrypt-textarea::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.encrypt-textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.encrypt-textarea::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.scrollable-output {
+  max-height: 15rem;
+  overflow-y: auto;
+  font-size: 0.75rem;
+  padding-right: 3px;
+  width: 100%;
+}
+
+/* Custom scrollbar styling */
+.scrollable-output::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-output::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.scrollable-output::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.scrollable-output::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
