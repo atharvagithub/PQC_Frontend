@@ -1,0 +1,54 @@
+.upload-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  color: rgb(70, 61, 68);
+  width: 360px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  height: 70vh;
+  align-items: center;
+  text-align: center;
+}
+
+.upload-input {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.file-content {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  max-height: 42vh;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.file-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.file-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.file-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.file-content::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
