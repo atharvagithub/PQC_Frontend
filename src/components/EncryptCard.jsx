@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import './EncryptCard.css';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,16 @@ const EncryptCard = () => {
   const [error, setError] = useState('');
   const [encryptionResponse, setEncryptionResponse] = useState(null);
 
+  useEffect(() => {
+    const savedKey = localStorage.getItem('encrypt_publicKey');
+    const savedData = localStorage.getItem('encrypt_fileContent');
+    const savedResponse = localStorage.getItem('encrypt_response');
+
+    if (savedKey) setPublicKey(savedKey);
+    if (savedData) setFileContent(JSON.parse(savedData));
+    if (savedResponse) setEncryptionResponse(JSON.parse(savedResponse));
+  }, []);
+
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -17,6 +27,7 @@ const EncryptCard = () => {
       try {
         const json = JSON.parse(event.target.result);
         setFileContent([json]); // store as array of one object
+        localStorage.setItem('encrypt_fileContent', JSON.stringify([json]));
       } catch (err) {
         setError('Invalid JSON file');
       }
@@ -48,6 +59,7 @@ const EncryptCard = () => {
 
       const data = await response.json();
       setEncryptionResponse(data);
+      localStorage.setItem('encrypt_response', JSON.stringify(data));
 
     } catch (err) {
       setError(err.message || 'Something went wrong');
@@ -90,7 +102,7 @@ const EncryptCard = () => {
           className="encryption-animation"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse' }}
         >
           🔐 Encrypting...
         </motion.div>

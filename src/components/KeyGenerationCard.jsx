@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import './KeyGenerationCard.css';
 
 const KeyGenerationCard = () => {
@@ -6,6 +6,14 @@ const KeyGenerationCard = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showKeys, setShowKeys] = useState(false);
+
+  useEffect(() => {
+    const savedKeys = localStorage.getItem('cryptoKeys');
+    if (savedKeys) {
+      setKeys(JSON.parse(savedKeys));
+      setShowKeys(true);
+    }
+  }, []);
 
   const handleGenerateKeys = async () => {
     setLoading(true);
@@ -19,6 +27,13 @@ const KeyGenerationCard = () => {
         privateKey: data.private_key,
         note: data.note,
       });
+       const keysData = {
+        publicKey: data.public_key,
+        privateKey: data.private_key,
+        note: data.note
+      };
+      localStorage.setItem('cryptoKeys', JSON.stringify(keysData));
+      setKeys(keysData);
       setShowKeys(true);
     } catch (err) {
       console.error(err);

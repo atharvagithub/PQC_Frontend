@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage/HomePage';
 import MainPage from './pages/MainPage/MainPage';
+import BlockPage from './pages/BlockPage/BlockPage';
 import Navbar from './components/Navbar';
 
 import './App.css';
@@ -16,6 +17,7 @@ function AnimatedRoutes() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/main" element={<MainPage />} />
+          <Route path="/blockchain" element={<BlockPage />} />
         </Routes>
       </AnimatePresence>
     </div>
