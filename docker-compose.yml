@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    image: achftdocker/pqc-backend:latest
+    container_name: pqc-backend
+    ports:
+      - "8000:8000"
+      - "8545:8545"  # expose Hardhat or blockchain API
+    environment:
+      - BLOCKCHAIN_PROVIDER=http://127.0.0.1:8545
+      - SESSION_SECRET_KEY=ulJl6A9el1ZEuWTD958cO76T5Id3dUkKoXCKRSQG5cOO5lavR22x74paSeWfghiVCGZOElqsv7zdg5jdS3MgnA
+    depends_on:
+      - ipfs
+      - pqc-service
+    networks:
+      - pqcnet
+
+  pqc-service:
+    image: achftdocker/pqc-microservice:latest
+    container_name: pqc-service
+    ports:
+      - "9000:9000"
+    depends_on:
+      - ipfs
+    networks:
+      - pqcnet
+
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    container_name: ipfs
+    ports:
+      - "5001:5001"    # IPFS API
+      - "8081:8080"    # IPFS Gateway
+      - "4001:4001"    # Swarm
+    volumes:
+      - ipfs_data:/data/ipfs
+    networks:
+      - pqcnet
+
+networks:
+  pqcnet:
+
+volumes:
+  ipfs_data:

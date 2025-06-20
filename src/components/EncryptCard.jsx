@@ -1,6 +1,7 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './EncryptCard.css';
 import { motion } from 'framer-motion';
+import {EncryptionContext } from '../context/EncryptionContext'
 
 const EncryptCard = () => {
   const [publicKey, setPublicKey] = useState('');
@@ -8,6 +9,7 @@ const EncryptCard = () => {
   const [isEncrypting, setIsEncrypting] = useState(false);
   const [error, setError] = useState('');
   const [encryptionResponse, setEncryptionResponse] = useState(null);
+  const { setEncryptionData } = useContext(EncryptionContext);
 
   useEffect(() => {
     const savedKey = localStorage.getItem('encrypt_publicKey');
@@ -60,6 +62,7 @@ const EncryptCard = () => {
       const data = await response.json();
       setEncryptionResponse(data);
       localStorage.setItem('encrypt_response', JSON.stringify(data));
+      setEncryptionData(data);
 
     } catch (err) {
       setError(err.message || 'Something went wrong');

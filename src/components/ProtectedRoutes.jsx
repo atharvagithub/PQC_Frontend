@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/blockchain/check_session', {
+        const res = await fetch('http://localhost:8000/api/blockchain/check_session', {
           method: 'POST',
           credentials: 'include' // Send cookie
         });

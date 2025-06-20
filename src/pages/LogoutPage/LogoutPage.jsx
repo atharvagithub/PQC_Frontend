@@ -7,7 +7,7 @@ const LogoutPage = () => {
   useEffect(() => {
     const logout = async () => {
       try {
-        await fetch('http://127.0.0.1:8000/api/blockchain/logout', {
+        await fetch('http://localhost:8000/api/blockchain/logout', {
           method: 'POST',
           credentials: 'include', // Important to clear the cookie
         });

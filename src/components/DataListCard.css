@@ -1,0 +1,175 @@
+.data-list-card {
+  flex: 1;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.data-list-card h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+.data-list-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-list-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.data-id {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #34495e;
+  word-break: break-all;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+  background-color: #2980b9;
+}
+
+.actions button:nth-child(2) {
+  background-color: #27ae60;
+}
+
+.actions button:nth-child(2):hover {
+  background-color: #219150;
+}
+
+.actions button:nth-child(3) {
+  background-color: #e74c3c;
+}
+
+.actions button:nth-child(3):hover {
+  background-color: #c0392b;
+}
+
+.actions input {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 6px;
+  width: 180px;
+}
+
+.actions button {
+  margin-left: 4px;
+}
+
+.data-item {
+  margin-bottom: 15px;
+}
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.inline-actions button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.address-input {
+  padding: 5px;
+  width: 220px;
+}
+
+.inline-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inline-actions button:hover {
+  opacity: 0.9;
+}
+
+.inline-actions button:nth-child(1) {
+  background-color: #3498db; /* Download - Blue */
+}
+
+.inline-actions button:nth-child(2) {
+  background-color: #2ecc71; /* Grant - Green */
+}
+
+.inline-actions button:nth-child(3) {
+  background-color: #e74c3c; /* Revoke - Red */
+}
+
+.inline-actions button:nth-child(5) {
+  background-color: #1abc9c; /* ✓ Submit - Teal */
+}
+
+.inline-actions button:nth-child(6) {
+  background-color: #95a5a6; /* ✖ Cancel - Gray */
+}
+
+.address-input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 220px;
+}
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inline-actions button {
+  height: 36px;
+  padding: 0 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.inline-actions input[type="text"] {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}

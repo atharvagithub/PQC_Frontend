@@ -1,0 +1,47 @@
+.store-card {
+  flex: 0 0 360px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.store-card h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.store-card label {
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  display: block;
+  color: #34495e;
+}
+
+.store-card input,
+.store-card textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.store-card button {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.store-card button:hover {
+  background-color: #2980b9;
+}

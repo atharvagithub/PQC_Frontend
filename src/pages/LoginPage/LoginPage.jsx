@@ -11,7 +11,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/blockchain/login', { private_key: privateKey }, {
+      const res = await axios.post('http://localhost:8000/api/blockchain/login', { private_key: privateKey }, {
         withCredentials: true,
       });
       if (res.data.message === 'Login successful') {
