@@ -61,24 +61,71 @@ function DataListCard() {
 
   const handleDownload = async (dataId) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/blockchain/download/${dataId}`, {
+      // Step 1: Retrieve encrypted metadata
+      const retrieveRes = await fetch(`http://localhost:8000/api/blockchain/retrieve/${dataId}`, {
         credentials: 'include',
       });
+      if (!retrieveRes.ok) throw new Error('Failed to retrieve encrypted metadata.');
+      const encryptedData = await retrieveRes.json();
+      const file_location = "/app/data_encrypted.bin";
+      // Step 2: Ask user for their private key
+      const privateKey = window.prompt("Enter your private key to download the data:");
+      if (!privateKey) {
+        alert("Download cancelled. Private key is required.");
+        return;
+      }
+      // Step 3: Decrypt the data
+      const decryptRes = await fetch("http://localhost:9000/decrypt_data", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          private_key: privateKey,
+          kem_ciphertext: encryptedData.kem_cyphertext ?? "",
+          aes_iv: encryptedData.aes_iv ?? "",
+          aes_tag: encryptedData.aes_tag ?? "",
+          encrypted_file: file_location,
+        }),
+      });
 
-      if (!res.ok) throw new Error('Download failed');
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
+      if (!decryptRes.ok) throw new Error('Decryption failed');
+      // 🔍 READ raw text and manually sanitize if needed
+      const rawText = await decryptRes.text();
 
+      let decryptedData;
+      try {
+        // 👇 This will work even if it's an array or object
+        decryptedData = JSON.parse(rawText, (key, value) => {
+          return value === null ? "" : value;
+        });
+      } catch (err) {
+        console.error("❌ Failed to parse response", rawText, err);
+        alert("Failed to parse JSON from decryption response.");
+        return;
+      }
+
+      // ✅ Create a Blob from sanitized data and download
+      const blob = new Blob([JSON.stringify(decryptedData, null, 2)], {
+        type: 'application/json',
+      });
+
+      const downloadUrl = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url;
-      a.download = `${dataId}.json`;
+      a.href = downloadUrl;
+      a.download = `${dataId}_decrypted.json`;
       a.click();
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error(err);
-      alert('Download error');
-    }
+      window.URL.revokeObjectURL(downloadUrl);
+
+      alert('Decrypted file downloaded successfully.');
+      } 
+      catch (err) {
+        console.error(err);
+        alert(err.message || 'Error during download');
+      }
+
   };
+
 
   return (
     <div className="data-list-card">
